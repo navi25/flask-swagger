@@ -1,13 +1,14 @@
 from connexion.resolver import RestyResolver
 import connexion
-from injector import Binder
+from injector import Binder, CallableProvider
 from flask_injector import FlaskInjector
 from services.provider import RestaurantsProvider
 
 def configure(binder: Binder) -> Binder:
-    binder.bind( RestaurantsProvider,
-                 RestaurantsProvider([{"Name": "F Res"}]) #Binding Class to this data
-    )
+    binder.bind(
+        interface=RestaurantsProvider.RestaurantsProvider,
+        to=RestaurantsProvider.RestaurantsProvider(items = [{"Name":"Fgh"}])
+    );
 
 
 if __name__ == '__main__':

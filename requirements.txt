@@ -3,3 +3,4 @@ connexion
 Flask-Injector
 fastavro
 pyopenssl
+flask_restful
